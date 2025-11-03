@@ -1,0 +1,28 @@
+<div class="container" *ngIf="survey">
+  <header class="topnav">
+    <h2>{{ survey.title }}</h2>
+    <nav>
+      <a routerLink="/">Back</a>
+    </nav>
+  </header>
+
+  <p class="muted">{{ survey.description }}</p>
+
+  <form (ngSubmit)="submit()">
+    <div *ngFor="let q of survey.questions; let i = index" class="q-card">
+      <p class="q-text">{{ i + 1 }}. {{ q.text }}</p>
+      <div class="opts">
+        <label><input type="radio" name="{{q.id}}" [(ngModel)]="answers[q.id]" [value]="'A'" /> {{ q.optionA }}</label>
+        <label><input type="radio" name="{{q.id}}" [(ngModel)]="answers[q.id]" [value]="'B'" /> {{ q.optionB }}</label>
+        <label><input type="radio" name="{{q.id}}" [(ngModel)]="answers[q.id]" [value]="'C'" /> {{ q.optionC }}</label>
+        <label><input type="radio" name="{{q.id}}" [(ngModel)]="answers[q.id]" [value]="'D'" /> {{ q.optionD }}</label>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn" type="button" (click)="submit()">Submit answers</button>
+    </div>
+  </form>
+</div>
+
+<div *ngIf="!survey && !loading" class="center muted">Survey not found.</div>

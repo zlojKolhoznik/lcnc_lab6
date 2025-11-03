@@ -1,0 +1,21 @@
+<div class="container" *ngIf="stats">
+  <header class="topnav">
+    <h2>Stats — {{ stats.title }}</h2>
+    <nav>
+      <a routerLink="/">Back</a>
+    </nav>
+  </header>
+
+  <div *ngFor="let q of stats.questions" class="q-stats">
+    <h4>{{ q.text }}</h4>
+    <div class="bars">
+      <div>A: {{ q.countA || 0 }}</div>
+      <div>B: {{ q.countB || 0 }}</div>
+      <div>C: {{ q.countC || 0 }}</div>
+      <div>D: {{ q.countD || 0 }}</div>
+      <div class="muted">Total: {{ q.totalResponses || 0 }}</div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!stats && !loading" class="center muted">Stats not available.</div>

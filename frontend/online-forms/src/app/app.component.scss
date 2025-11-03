@@ -1,0 +1,6 @@
+:root { --accent: #6f42c1; --muted:#666 }
+.app-header { display:flex; justify-content:space-between; align-items:center; padding:1rem 1.5rem; background:linear-gradient(90deg,#fff,#f8f6ff); box-shadow:0 1px 0 rgba(0,0,0,0.04) }
+.brand { font-weight:700; font-size:1.125rem }
+.nav a { margin-left:1rem; color:var(--accent); text-decoration:none }
+.app-main { padding:1rem }
+

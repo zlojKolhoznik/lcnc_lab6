@@ -1,0 +1,40 @@
+<div class="container">
+  <header class="topnav">
+    <h2>Create Survey</h2>
+    <nav>
+      <a routerLink="/">Back</a>
+    </nav>
+  </header>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Title</label>
+    <input formControlName="title" />
+
+    <label>Description</label>
+    <textarea formControlName="description"></textarea>
+
+    <section class="questions">
+      <h3>Questions</h3>
+      <div formArrayName="questions">
+        <div *ngFor="let q of questions.controls; let i = index" [formGroupName]="i" class="q">
+          <label>Question {{ i + 1 }}</label>
+          <input formControlName="text" placeholder="Question text" />
+          <div class="opts">
+            <input formControlName="optionA" placeholder="Option A" />
+            <input formControlName="optionB" placeholder="Option B" />
+            <input formControlName="optionC" placeholder="Option C" />
+            <input formControlName="optionD" placeholder="Option D" />
+          </div>
+          <div class="q-actions">
+            <button type="button" (click)="removeQuestion(i)" class="btn outline">Remove</button>
+          </div>
+        </div>
+      </div>
+      <button type="button" class="btn" (click)="addQuestion()">Add question</button>
+    </section>
+
+    <div class="form-actions">
+      <button class="btn" type="submit">Create</button>
+    </div>
+  </form>
+</div>
