@@ -6,17 +6,22 @@
     </nav>
   </header>
 
-  <form [formGroup]="form" (ngSubmit)="submit()">
-    <label>Title</label>
-    <input formControlName="title" />
+  <form [formGroup]="form" (ngSubmit)="submit()" class="card form-card">
+    <div class="field">
+      <label>Title <span class="req">*</span></label>
+      <input formControlName="title" placeholder="Enter a short title" />
+      <small class="error" *ngIf="form.get('title')?.touched && form.get('title')?.invalid">Title is required (max 200)</small>
+    </div>
 
-    <label>Description</label>
-    <textarea formControlName="description"></textarea>
+    <div class="field">
+      <label>Description</label>
+      <textarea formControlName="description" rows="3" placeholder="Optional description"></textarea>
+    </div>
 
     <section class="questions">
       <h3>Questions</h3>
       <div formArrayName="questions">
-        <div *ngFor="let q of questions.controls; let i = index" [formGroupName]="i" class="q">
+        <div *ngFor="let q of questions.controls; let i = index" [formGroupName]="i" class="q card">
           <label>Question {{ i + 1 }}</label>
           <input formControlName="text" placeholder="Question text" />
           <div class="opts">
@@ -34,7 +39,7 @@
     </section>
 
     <div class="form-actions">
-      <button class="btn" type="submit">Create</button>
+      <button class="btn" type="submit" [disabled]="form.invalid">Create</button>
     </div>
   </form>
 </div>

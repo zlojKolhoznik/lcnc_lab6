@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using OnlineForms.Data;
 using System.Text.Json.Serialization;
+using System;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,6 +18,29 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OnlineFormsDbContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
 
+// CORS configuration
+var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? Array.Empty<string>();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Frontend", policy =>
+    {
+        if (allowedOrigins.Length > 0)
+        {
+            policy.WithOrigins(allowedOrigins)
+                  .AllowAnyHeader()
+                  .AllowAnyMethod()
+                  .AllowCredentials();
+        }
+        else
+        {
+            // Permissive fallback for dev when no origins configured
+            policy.AllowAnyOrigin()
+                  .AllowAnyHeader()
+                  .AllowAnyMethod();
+        }
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -27,6 +51,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Use CORS before auth/endpoints
+app.UseCors("Frontend");
 
 app.UseAuthorization();
 

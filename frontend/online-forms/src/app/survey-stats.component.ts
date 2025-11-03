@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { SurveyService } from './services/survey.service';
 import { SurveyStatsDto } from './models/survey.model';
 
 @Component({
   selector: 'app-survey-stats',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './survey-stats.component.html',
   styleUrls: ['./survey-stats.component.scss']
 })

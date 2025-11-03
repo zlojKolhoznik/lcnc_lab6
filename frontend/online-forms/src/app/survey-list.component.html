@@ -1,6 +1,9 @@
 <div class="container">
   <header class="topnav">
-    <h1>Online Surveys</h1>
+    <div>
+      <h1>Surveys</h1>
+      <p class="muted">Create, take, and explore results.</p>
+    </div>
     <nav>
       <button class="btn" (click)="goCreate()">Create Survey</button>
     </nav>
@@ -9,10 +12,10 @@
   <section *ngIf="loading" class="center">Loading surveys…</section>
 
   <ul class="survey-list" *ngIf="!loading">
-    <li *ngFor="let s of surveys" class="survey-card">
+    <li *ngFor="let s of surveys" class="survey-card card">
       <div class="meta">
         <h3>{{ s.title }}</h3>
-        <p class="muted">{{ s.description }}</p>
+        <p class="muted">{{ s.description || 'No description' }}</p>
       </div>
       <div class="actions">
         <button class="btn" (click)="take(s.id)">Take</button>

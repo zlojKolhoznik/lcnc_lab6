@@ -1,9 +1,3 @@
-.container {
-  max-width: 920px;
-  margin: 2rem auto;
-  padding: 1rem;
-}
-
 .topnav {
   display: flex;
   justify-content: space-between;
@@ -15,29 +9,19 @@
   list-style: none;
   padding: 0;
   display: grid;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .survey-card {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
 }
 
 .muted { color: #666; }
 .center { text-align: center; }
 
 .actions { display:flex; gap:0.5rem }
-.btn {
-  background: #6f42c1;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-  cursor: pointer;
-}
 .btn.outline { background: transparent; color: #6f42c1; border:1px solid #e6dfff }

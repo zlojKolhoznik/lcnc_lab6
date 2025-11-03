@@ -6,15 +6,15 @@
     </nav>
   </header>
 
-  <div *ngFor="let q of stats.questions" class="q-stats">
-    <h4>{{ q.text }}</h4>
-    <div class="bars">
-      <div>A: {{ q.countA || 0 }}</div>
-      <div>B: {{ q.countB || 0 }}</div>
-      <div>C: {{ q.countC || 0 }}</div>
-      <div>D: {{ q.countD || 0 }}</div>
-      <div class="muted">Total: {{ q.totalResponses || 0 }}</div>
+  <div *ngFor="let q of stats.questions" class="q-stats card" style="padding:1rem 1.25rem; border-radius:12px; margin-bottom:.75rem;">
+    <h4 style="margin-top:0">{{ q.text }}</h4>
+    <div class="bars" style="display:grid; gap:.5rem; grid-template-columns:repeat(2,minmax(0,1fr));">
+      <div> A <span class="muted">({{ q.countA || 0 }})</span></div>
+      <div> B <span class="muted">({{ q.countB || 0 }})</span></div>
+      <div> C <span class="muted">({{ q.countC || 0 }})</span></div>
+      <div> D <span class="muted">({{ q.countD || 0 }})</span></div>
     </div>
+    <div class="muted" style="margin-top:.5rem">Total responses: {{ q.totalResponses || 0 }}</div>
   </div>
 </div>
 

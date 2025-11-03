@@ -1,10 +1,14 @@
-.container { max-width:920px; margin:2rem auto; padding:1rem }
+.container { max-width:1024px; margin:2rem auto; padding:1rem }
+.form-card { padding:1rem 1.25rem; border-radius:12px; }
 label { display:block; margin-top:0.5rem; font-weight:600 }
-input, textarea { width:100%; padding:0.5rem; border-radius:6px; border:1px solid #ddd }
+input, textarea { width:100% }
+.field { margin-bottom:1rem }
+.error { color:#b42318 }
+.req { color:#b42318 }
 .questions { margin-top:1rem }
-.q { padding:0.75rem; border-radius:6px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,0.03); margin-bottom:0.75rem }
-.opts { display:grid; grid-template-columns:1fr 1fr; gap:0.5rem; margin-top:0.5rem }
+.q { padding:0.75rem 1rem; border-radius:12px; margin-bottom:0.75rem }
+.opts { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:0.5rem; margin-top:0.5rem }
+.opts > * { min-width: 0; }
+.q input, .q textarea { width: 100%; }
 .q-actions { margin-top:0.5rem }
 .form-actions { margin-top:1rem }
-.btn { background:#6f42c1; color:#fff; border:none; padding:0.5rem 0.75rem; border-radius:6px }
-.btn.outline { background:transparent; color:#6f42c1; border:1px solid #e6dfff }

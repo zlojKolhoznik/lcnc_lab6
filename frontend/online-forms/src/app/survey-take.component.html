@@ -8,10 +8,10 @@
 
   <p class="muted">{{ survey.description }}</p>
 
-  <form (ngSubmit)="submit()">
-    <div *ngFor="let q of survey.questions; let i = index" class="q-card">
+  <form (ngSubmit)="submit()" class="card" style="padding:1rem 1.25rem; border-radius:12px;">
+    <div *ngFor="let q of survey.questions; let i = index" class="q-card" style="margin-bottom:1rem;">
       <p class="q-text">{{ i + 1 }}. {{ q.text }}</p>
-      <div class="opts">
+      <div class="opts" style="display:grid; gap:.5rem; grid-template-columns:1fr 1fr;">
         <label><input type="radio" name="{{q.id}}" [(ngModel)]="answers[q.id]" [value]="'A'" /> {{ q.optionA }}</label>
         <label><input type="radio" name="{{q.id}}" [(ngModel)]="answers[q.id]" [value]="'B'" /> {{ q.optionB }}</label>
         <label><input type="radio" name="{{q.id}}" [(ngModel)]="answers[q.id]" [value]="'C'" /> {{ q.optionC }}</label>
