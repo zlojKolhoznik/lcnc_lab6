@@ -1,0 +1,60 @@
+@OnlineForms_HostAddress = http://localhost:5112
+
+GET {{OnlineForms_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+# Create a survey
+POST {{OnlineForms_HostAddress}}/api/surveys
+Content-Type: application/json
+
+{
+	"title": "Course Feedback",
+	"description": "Tell us about your experience",
+	"questions": [
+		{ "text": "How do you rate the course overall?", "optionA": "Excellent", "optionB": "Good", "optionC": "Fair", "optionD": "Poor", "order": 1 },
+		{ "text": "Difficulty level?", "optionA": "Too easy", "optionB": "Easy", "optionC": "Just right", "optionD": "Hard", "order": 2 }
+	]
+}
+
+###
+
+# List surveys
+GET {{OnlineForms_HostAddress}}/api/surveys
+Accept: application/json
+
+###
+
+# Get a survey by id
+# @surveyId = REPLACE_WITH_SURVEY_ID
+GET {{OnlineForms_HostAddress}}/api/surveys/{{surveyId}}
+Accept: application/json
+
+###
+
+# Submit responses for a survey
+POST {{OnlineForms_HostAddress}}/api/surveys/{{surveyId}}/responses
+Content-Type: application/json
+
+{
+	"participantId": "student-123",
+	"answers": [
+		{ "questionId": "REPLACE_Q1_ID", "selectedOption": "A" },
+		{ "questionId": "REPLACE_Q2_ID", "selectedOption": "C" }
+	]
+}
+
+###
+
+# Get responses for a survey
+GET {{OnlineForms_HostAddress}}/api/surveys/{{surveyId}}/responses
+Accept: application/json
+
+###
+
+# Get stats for a survey
+GET {{OnlineForms_HostAddress}}/api/surveys/{{surveyId}}/stats
+Accept: application/json
+
+###

@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineForms", "OnlineForms\OnlineForms.csproj", "{28D97A4E-D786-B25D-EBB6-7839CF04C955}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28D97A4E-D786-B25D-EBB6-7839CF04C955}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28D97A4E-D786-B25D-EBB6-7839CF04C955}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28D97A4E-D786-B25D-EBB6-7839CF04C955}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28D97A4E-D786-B25D-EBB6-7839CF04C955}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BD4B028A-840D-4B75-8F42-182FF809B85C}
+	EndGlobalSection
+EndGlobal
